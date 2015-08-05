@@ -1,0 +1,73 @@
+<table class="table table-bordered">
+    <tr>
+        <td><strong>Address</strong></td>
+        <td>
+            <span class="address-street"><%= details.get("address.street") %></span>,
+            <span class="address-city"><%= details.get("address.city") %></span>,
+            <span class="address-state"><%= details.get("address.state") %></span>
+            <span class="address-zip"><%= details.get("address.zip") %></span>
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Phone Number</strong></td>
+        <td class="phone"><%= details.get("phone") || "Unknown"  %></td>
+    </tr>
+    <tr>
+        <td><strong>Year Started</strong></td>
+        <td><%= details.get("startYear") || "Unknown"  %></td>
+    </tr>
+    <tr>
+        <td><strong>Business Type</strong></td>
+        <td><%= details.get("type") || "Unknown"  %></td>
+    </tr>
+    <tr>
+        <td><strong>Number of Employees</strong></td>
+        <td>
+            <span class="num-employees"><%= details.get("numEmployees") || "Unknown" %></span>
+        </td>
+    </tr>
+    <tr>
+        <td><strong>Principal Employee</strong></td>
+        <td>
+            <span class="principal-employee" data-principal-id="<%= details.get('principalIdentificationNumber') %>"><%= details.get("principalEmployee") %></span>
+        </td>
+    </tr>
+</table>
+
+<div class="row">
+    <div class="col-md-12">
+        <h3>Map</h3>
+        <% if (details.get("geo.lat")) { %>
+            <p>Location: <a target="_blank" href="https://maps.google.com/maps?q=<%= details.get("geo.lat") %>,<%= details.get("geo.lng") %>&hl=en&sll=<%= details.get("geo.lat") %>,<%= details.get("geo.lng") %>&sspn=0.006543,0.013947&t=m&z=17"><%= details.get("geo.lat") %>, <%= details.get("geo.lng") %></a></p>
+        <% } %>
+        <% if (details.getAddress()) { %>
+            <p>Address: <a target="_blank" href="https://maps.google.com/maps?q=<%= encodeURIComponent(details.getAddress().replace(" ","+")) %>&hl=en&sll=37.6,-95.665&sspn=52.518648,109.248047&t=m&z=16"><%= details.getAddress() %></a>
+        <% } %>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="map map-basic"></div>
+    </div>
+    <div class="col-md-6">
+        <div class="map map-streetview"></div>
+    </div>
+</div>
+
+
+<div class="additional"></div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h3>Google Search Results</h3>
+    </div>
+</div>
+
+<div class="search-results"></div>
+
+
+<div class="lightningpoll-embedded subtle"></div>
+<script type="text/javascript" src="http://lightningpoll.co/questions/api/527fed715ae5757417890883/lightningpoll.js?test=true&_=<%= parseInt(Math.random()*1000000)%>"></script>
+
+

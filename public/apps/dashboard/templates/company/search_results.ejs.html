@@ -1,0 +1,21 @@
+<div class="search-results-header">
+    <div>Google <%= searchType %> results for: <a href="<%= moreResultsUrl %>" target="_blank"><%= query %></a></div>
+    <% if (resultCount) { %>
+    <div>About <%=resultCount %> results</div>
+    <% } %>
+</div>
+<% searchResults.each(function(result){ %>
+<div class="row search-result">
+    <div class="col-md-12">
+        <div class="link">
+            <a href="<%= result.get("url")%>" target="_blank"><%= result.get("title")%></a>
+        </div>
+        <div class="url">
+            <%= result.get("visibleUrl")%>
+        </div>
+        <div class="result-content">
+            <%= result.get("content")%>
+        </div>
+    </div>
+</div>
+<% }) %>

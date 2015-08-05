@@ -1,0 +1,14 @@
+<!-- Nav tabs -->
+<ul class="nav nav-tabs">
+    <li class="active"><a href="#" data-toggle="tab" data-search-type="web">Web</a></li>
+    <li><a href="#" data-toggle="tab" data-search-type="news">News</a></li>
+    <li><a href="#" data-toggle="tab" data-search-type="patent">Patents</a></li>
+    <% if (details.get("principalEmployee")){ %>
+    <li><a href="#" data-toggle="tab" data-search-type="news" data-query="&quot;<%= details.get("principalEmployee") %>&quot;">Principal Employee (<%= details.get("principalEmployee") %>)</a></li>
+    <% } %>
+</ul>
+
+<div class="search-results-content">
+    <div class="search-results-container">
+    </div>
+</div>

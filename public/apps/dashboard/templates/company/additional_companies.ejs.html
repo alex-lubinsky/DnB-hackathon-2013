@@ -1,0 +1,6 @@
+<% _.each(companies, function(company){ %>
+    <div><a href="" class="company-link" data-name="<%= company.name %>" data-id="<%= company.dunsNumber %>"><%= company.name %>
+        <% if (company.address && company.address.city) { %>
+            - <%= company.address.city %>, <%= company.address.state %></a></div>
+        <% } %>
+<% }) %>

@@ -1,0 +1,12 @@
+<h3>Tools</h3>
+<hr />
+<ul class="nav nav-pills nav-stacked">
+    <li class="new-investigation-link<% if (!selectedCompany) { %> active<%}%>"><a href="#">New Investigation</a></li>
+</ul>
+
+<hr />
+<ul class="nav nav-pills nav-stacked">
+    <% companyCollection.each(function(company){  %>
+    <li class="<% if (company.get("selected")) { %>active<%}%>"><a href="#" class="company-select-link" data-id="<%= company.get("id") %>"><%= company.get("name") %></a></li>
+    <% }) %>
+</ul>
